@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>s-DELI_history</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="aStar Fashion Template Project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.3/bootstrap.css">
+<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="styles/cart.css">
+<link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/navbar.css">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Sidebar -->
+
+  {% include 'sidebar.html.twig' %}
+  {% include 'navbar.html.twig' %}
+
+	<!-- Home -->
+
+	<div class="home">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/header.png" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="home_content">
+				<div class="home_title">History</div>
+				<div class="breadcrumbs">
+					<ul class="d-flex flex-row align-items-center justify-content-start">
+						<li>注文履歴</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Cart -->
+
+	<div class="cart_section">
+
+
+		<div class="section_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="cart_container">
+
+							<!-- Cart Bar -->
+							<div class="cart_bar">
+								<ul class="cart_bar_list item_list d-flex flex-row align-items-center justify-content-start">
+									<li>商品</li>
+									<!-- <li>Color</li>
+									<li>Size</li> -->
+									<li>価格</li>
+									<li>個数</li>
+                  <li>配達時間</li>
+								</ul>
+							</div>
+
+          {% if dataArr | length == 0 %}
+            <p class="lead pt-4 pb-5 mb-5 text-dark" >現在の注文はありません。</p>
+          {% else %}
+              {% for value in dataArr %}
+							<!-- Cart Items -->
+							<div class="cart_items">
+								<ul class="cart_items_list">
+
+									<!-- Cart Item -->
+									<li class="cart_item item_list d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+										<div class="product d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+											<div><div class="product_image"><img src="{{constant('seika\\Bootstrap::ENTRY_URL')}}images/{{value.image}}" alt="{{value.item_name}}"></div></div>
+											<div class="product_name"><a href="product.html">{{value.item_name}}</a></div>
+										</div>
+										<!-- <div class="product_color text-lg-center product_text"><span>Color: </span>Brown</div>
+										<div class="product_size text-lg-center product_text"><span>Size: </span>One Size</div> -->
+										<div class="product_price text-lg-center product_text"><span>価格: </span>&yen;{{value.price|number_format(0, '.', ',')}}</div>
+										<div class="product_total text-lg-center product_text"><span>個数: </span>1個</div>
+                    <div class="product_total text-lg-center product_text"><span>配達時間: </span>{{value.time}}</div>
+                    <div class="cart_buttons d-flex flex-row align-items-start justify-content-start">
+      								<div class="cart_buttons_inner ml-auto d-flex flex-row align-items-start justify-content-start flex-wrap pb-4 ">
+      								</div>
+      							</div>
+									</li>
+								</ul>
+							</div>
+              {% endfor %}
+          {% endif %}
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Footer -->
+
+  {% include 'footer.html.twig'%}
+
+</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles/bootstrap-4.1.3/popper.js"></script>
+<script src="styles/bootstrap-4.1.3/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

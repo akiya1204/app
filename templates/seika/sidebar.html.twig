@@ -1,0 +1,51 @@
+<div class="sidebar">
+  <!-- Logo -->
+  <div class="sidebar_logo">
+    <a href="{{constant('seika\\Bootstrap::ENTRY_URL')}}list.php"><div>s-<span>deli</span></div></a>
+  </div>
+
+  <!-- time -->
+
+  <nav class="sidebar_nav">
+    <ul class="text-light" >
+      <li>現在の待ち時間は</li>
+      <li class="text-center h3">{{wait_time.time}}分</li>
+      <li>です</li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar_nav">
+    <ul>
+      <li><a href="./list.php">ホーム<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      <li><a href="./cart.php">カート<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      <li><a href="./rireki.php">現在の注文<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      <li><a href="./contact.php">お問い合わせ<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+    </ul>
+  </nav>
+
+  <!-- Search -->
+  <div class="search">
+    <form action="{{constant('seika\\Bootstrap::ENTRY_URL')}}list.php" method="get" class="search_form" id="sidebar_search_form">
+      <input type="text" name="item_name" class="search_input" placeholder="Search" required="required" value="{{item_name}}">
+      <button class="search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+  </div>
+
+  <!-- login -->
+    {% if name | length > 0 %}
+    <nav class="sidebar_nav">
+      <ul>
+        <li class="text-light"><a href="./mypage.php">ようこそ{{name}}さん<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+        <li><a href="./logout.php">ログアウトはこちら<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      </ul>
+    </nav>
+    {% else %}
+    <nav class="sidebar_nav">
+      <ul>
+        <li><a href="./join.php">ログインしてください<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+        <li><a href="./regist.php">会員登録はこちら<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      </ul>
+    </nav>
+    {% endif %}
+</div>

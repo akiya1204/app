@@ -1,0 +1,18 @@
+<div class="categories">
+  <div class="section_container">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="categories_list_container">
+            <ul class="categories_list d-flex flex-row align-items-center justify-content-start">
+              <li><a href="{{constant('seika\\Bootstrap::ENTRY_URL')}}list.php">全て</a></li>
+              {% for value in cateArr %}
+              <li><a href="{{constant('seika\\Bootstrap::ENTRY_URL')}}list.php?ctg_id={{value.ctg_id}}">{{value.category_name}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

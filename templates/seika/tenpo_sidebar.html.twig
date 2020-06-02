@@ -1,0 +1,31 @@
+<div class="sidebar">
+  <!-- Logo -->
+  <div class="sidebar_logo">
+    <a href="{{constant('seika\\Bootstrap::ENTRY_URL')}}tenpo.php"><div>s-<span>deli</span></div></a>
+  </div>
+
+  <!-- time -->
+
+  <nav class="sidebar_nav">
+    <ul class="text-light" >
+      <li>現在の待ち時間は</li>
+      <li class="text-center h3">{{wait_time.time}}分</li>
+      <li>です</li>
+    </ul>
+  </nav>
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar_nav">
+    <ul>
+      <li><a href="./tenpo.php">注文票<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+      <li><a href="./tenpo_fix.php">商品の修正<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+    </ul>
+  </nav>
+
+  <div class="search">
+    <form action="{{constant('seika\\Bootstrap::ENTRY_URL')}}tenpo_fix.php" method="get" class="search_form" id="sidebar_search_form">
+      <input type="text" name="item_name" class="search_input" placeholder="Search" required="required" value="{{item_name}}">
+      <button class="search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+  </div>
+</div>
